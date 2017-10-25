@@ -1,2 +1,5 @@
 # ML-Course-Materials
-introduction to machine learning
+
+## course materials for machine learning (including notes and assignments)
+
+
