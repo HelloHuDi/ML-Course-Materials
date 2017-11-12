@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Fresh Tomatoes!</title>
+
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <style type="text/css" media="screen">
+        body {
+            padding-top: 80px;
+        }
+        #trailer .modal-dialog {
+            margin-top: 80px;
+            width: 80%;
+            height: 80%;
+        }
+        .hanging-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            z-index: 9001;
+        }
+        #trailer-video {
+            width: 100%;
+            height: 100%;
+        }
+        .movie-tile {
+            margin-bottom: 20px;
+            padding-top: 20px;
+        }
+        .movie-tile:hover {
+            background-color: #EEE;
+            cursor: pointer;
+        }
+        .scale-media {
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+        .scale-media iframe {
+            border: none;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: white;
+        }
+    </style>
+    <script type="text/javascript" charset="utf-8">
+        // Pause the video when the modal is closed
+        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
+            // Remove the src so the player itself gets removed, as this is the only
+            // reliable way to ensure the video stops playing in IE
+            $("#trailer-video-container").empty();
+        });
+        // Start playing the video whenever the trailer modal is opened
+        $(document).on('click', '.movie-tile', function (event) {
+             var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            // var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+              'id': 'trailer-video',
+              'type': 'text-html',
+              'src': trailerYouTubeId,
+              'frameborder': 0
+            }));
+        });
+        // Animate in the movies when the page loads
+        $(document).ready(function () {
+          $('.movie-tile').hide().first().show("fast", function showNext() {
+            $(this).next("div").show("fast", showNext);
+          });
+        });
+    </script>
+</head>
+
+  <body>
+    <!-- Trailer Video Modal -->
+    <div class="modal" id="trailer">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          </a>
+          <div class="scale-media" id="trailer-video-container">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Page Content -->
+    <div class="container">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Woody's Movie Trailers</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="http://v.youku.com/v_show/id_XMzE0ODM1ODg1Ng==.html?spm=a2hww.20027244.m_250379.5~1~3~A" data-toggle="modal" data-target="#trailer">
+    <img src="https://gss1.bdstatic.com/9vo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike116%2C5%2C5%2C116%2C38/sign=b3f364854190f60310bd9415587bd87e/4d086e061d950a7b3b79a67001d162d9f2d3c932.jpg" width="340" height="342">
+    <h2>功守道</h2>
+    <h5>主演：马云、李连杰、甄子丹、吴京托尼·贾</h5>
+    <h6>通过影片向中国功夫做过贡献的前辈致敬，同时与全世界分享中国文化</h6>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="http://v.youku.com/v_show/id_XMzAyMDAzNDIxNg==.html?spm=a2h1n.8261147.showInfo.5!2~5~5~5~A" data-toggle="modal" data-target="#trailer">
+    <img src="http://p3.pstatp.com/origin/2ec100044da088981c31" width="340" height="342">
+    <h2>大军师司马懿之虎啸龙吟</h2>
+    <h5>主演：吴秀波、刘涛、王洛勇</h5>
+    <h6>从司马懿戎装佩剑意气风发，到诸葛亮手持白鹤羽扇挥斥方遒，都预示着一场场对战呼之欲出</h6>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="http://v.youku.com/v_show/id_XMzE0Njc4NDk2NA==.html?spm=a2h0k.8191407.0.0&from=s1.8-3-1.1" data-toggle="modal" data-target="#trailer">
+    <img src="https://gss3.bdstatic.com/7Po3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike116%2C5%2C5%2C116%2C38/sign=6cb2578f3112b31bd361c57be7715d1f/03087bf40ad162d9edeca9d419dfa9ec8b13cdfc.jpg" width="340" height="342">
+    <h2>海上牧云记</h2>
+    <h5>主演：黄轩、窦骁、周一围、徐璐</h5>
+    <h6>九州大陆正值端朝末年，人类皇族牧云家的六皇子牧云笙、大将军之子穆如寒江、瀚州八部落的后人硕风和叶之间家国情仇、争夺天下的传奇故事</h6>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="http://video.mtime.com/68349/?mid=70233" data-toggle="modal" data-target="#trailer">
+    <img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2221361200,1898908769&fm=27&gp=0.jpg" width="340" height="342">
+    <h2>正义联盟</h2>
+    <h5>主演：本·阿弗莱克、亨利·卡维尔、盖尔·加朵</h5>
+    <h6>面对一个全新的世界威胁，超人、蝙蝠侠、神奇女侠、闪电侠、海王和钢骨六位英雄聚首，与这股未知的威胁对抗</h6>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="http://video.mtime.com/68364/?mid=237204" data-toggle="modal" data-target="#trailer">
+    <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2470729963,2366566132&fm=11&gp=0.jpg" width="340" height="342">
+    <h2>引爆者</h2>
+    <h5>主演：段奕宏、余男</h5>
+    <h6>影片讲述了段奕宏饰演的男主角赵旭东，无辜被卷入多派势力的利益争夺中，化身孤胆英雄自我救赎的故事</h6>
+</div>
+
+    </div>
+  </body>
+</html>
