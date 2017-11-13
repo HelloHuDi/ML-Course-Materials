@@ -1,5 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: UTF-8 -*-
 import webbrowser
-
 
 class Movie():
     def __init__(self, movie_title, movie_storyline,
